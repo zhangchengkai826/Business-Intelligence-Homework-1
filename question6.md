@@ -55,3 +55,124 @@ foreach(itemset in frequent_itemsets) {
 ### Reference
 
 [1] Aprioi Algorithm - Wikipedia (https://en.wikipedia.org/wiki/Apriori_algorithm)
+
+## FP-Growth Algorithm
+
+### Description
+
+Frequent‐pattern growth adopts a divide‐andconquer strategy as follows: First, it compresses the database representing frequent items into a frequent pattern tree, FP‐tree. It then divides the compressed database into as set of conditional databases, each associated with one frequent item or “pattern fragment”, and mines each database separately.
+
+### Pseudocode
+
+```
+struct TreeNode {
+    var parent;
+    var[] children;
+    var item;
+    var count;
+    var next;
+}
+
+let minimum_support_count = <user_input>;
+let minimum_confidence = <user_input>;
+let all_1-itemsets[] = { <all_1-itemsets> };
+let frequent_itemsets[] = {};
+let root = new TreeNode();
+
+scan database, calculate support_count of each itemset in all_1-itemsets;
+sort itemsets in all_1-itemsets in descending order by support_count;
+
+foreach(record in database) {
+    sort item in record in the same order as all_1-itemsets;
+    let node = root;
+    foreach(item in record) {
+        if(node.children does not contain a child which child.item == item) {
+            let new_node = new TreeNode(
+                child.item = item, child.count = 1, child.parent = node
+                , child.next = all_1-itemsets.find(itemset[0] = item)[0].next
+            );
+            node.children.append(new_node);
+            all_1-itemsets.find(itemset[0] = item)[0].next = new_node;
+        } else {
+            node.children.find(child.item = item).item++;
+        }
+        node = node.children.find(child.item = item);
+    }
+}
+
+sort itemsets in all_1-itemsets in ascending order by support_count;
+foreach(1-itemset in all_1-itemsets) {
+    if(1-itemset.support_count >= minimum_support_count) {
+        frequent_itemsets.append(1-itemset);
+    }
+
+    let item = 1-itemset[0];
+    let node = item.next;
+    let conditional_pattern_base = {};
+    while(node.next != null) {
+        let p = node.parent;
+        let cnt = node.count;
+        let cpb_obj = new Object();
+        cpb_obj.cnt = p.item;
+        while(p.parent != null) {
+            if(p.parent.parent == null) {
+                cpb_obj.subtreeId = p.item;
+            }
+            cpb_obj.items.append(p.item);
+            p = p.parent;
+        }
+        conditional_pattern_base.append(cpb_obj);
+        node = node.next;
+    }
+
+    let cond_fp_tree = new Dictionary<var, Dictionary<var, var>>();
+    foreach(cpb in conditional_pattern_base) {
+        foreach(item in cpb.items) {
+            cond_fp_tree[cpb.subtreeId][item]++;
+        }
+    }
+    foreach((subtreeId, dic) in cond_fp_tree) {
+        foreach((item, count) in dic) {
+            if(count < minimum_support_count) {
+                dic.erase(item);
+            }
+        }
+        if(dic.size() == 0) {
+            cond_fp_tree.erase(dic);
+        }
+    }
+
+    let fp_gen = new Dictionary();
+    foreach((subtreeId, dic) in cond_fp_tree) {
+        foreach(s in proper_non-empty_subset(dic.keys())) {
+            let min_cnt = INF;
+            foreach(item in s) {
+                if(dic[item] < min_cnt) {
+                    min_cnt = dic[item];
+                }
+            }
+            s.insert(1-itemset[0]);
+            fp_gen[s] += min_cnt;
+        }
+    }
+    foreach(s in fp_gen.keys()) {
+        s.support_count = fp_gen[s]
+        frequent_itemsets.append(s);
+    }
+}
+
+foreach(itemset in frequent_itemsets) {
+    foreach(s in non-empty_subsets(itemset)) {
+        if(itemset.support_count / s.support_count >= minimum_confidence) {
+            output the rule: s => (itemset - s);
+        }
+    }
+}
+```
+
+### Implementation
+
+```
+```
+
+### Test
