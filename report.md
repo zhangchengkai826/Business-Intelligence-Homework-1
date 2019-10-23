@@ -21,6 +21,7 @@ From this case, we can see that using business intelligence tools to fetch sensi
 For a sample of n values, the sample skewness S is a measure of the asymmetry of the distribution of samples. Negative skewness commonly indicates that the tail is on the left side of the distribution, and positive skew indicates that the tail is on the right. A zero value means that the tails on both sides of the mean balance out overall; this is the case for a symmetric distribution, but can also be true for an asymmetric distribution where one tail is long and thin, and the other is short but fat.
 
 The skewness formula is as follows:
+
 ![](skewness-formula.png)
 
 # Examples
@@ -78,6 +79,36 @@ numerator = \[(15-m)<sup>3</sup>+2*(20-m)<sup>3</sup>+3*(25-m)<sup>3</sup>+2*(30
 denominator = {\[(15-m)<sup>2</sup>+2*(20-m)<sup>2</sup>+3*(25-m)<sup>2</sup>+2*(30-m)<sup>2</sup>\] / (8-1)}<sup>1/3</sup> = 2.99
 
 (Skewness) S = numerator / denominator = -35.16 / 2.99 = -11.76 < 0
+
+# Question 3
+
+See question3.xlsx
+
+# Question 4
+
+For this box plot:
+
+![](box-plot.jpg)
+
+It plots for unit price data of items sold at four branches of AllElectronics during a given time period. Here we assume that all branches sold equal number of goods (we can set it to 5, for simplicity) and the cost of the goods are the same (we can set it to 0, for simplicity).
+
+For 1st branch:
+
+Relative Benefit = 40+60+80+100+155 = 435
+
+For 2nd branch:
+
+Relative Benefit = 62+80+100+158+180 = 580
+
+For 3rd branch:
+
+Relative Benefit = 40+60+140+160+190 = 590
+
+For 4th branch:
+
+Relative Benefit = 30+40+80+120+130 = 400
+
+So, branch 3 has the best benefit, since 590 > 580 > 435 > 400
 
 # Question 6
 
