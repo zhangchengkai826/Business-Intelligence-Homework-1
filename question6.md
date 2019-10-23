@@ -1,3 +1,19 @@
+# Question 1
+
+## Business Intelligence Definition
+
+An umbrella term which combines architectures, tools, databases, analytical tools, applications, and methodologies that are to enable interactive access (sometimes in real time) to data, to enable manipulation of data, and to give business managers and analysts the ability to conduct appropriate analyses
+
+## Business Intelligence Legal Risks
+
+Sometimes using tools in business intelligence may have legal risks. For instance, if a business intelligence researcher use a web crawler to fetch sensitive data from a company's website, it may infringe the intellectual property right of the company.
+
+### Case & Discussion
+
+In 2015, 3 employees in Yuan Guang Company used web crawler tools to illegally acquire the sensitive data stored in web servers of Gu Mi Technology Cooperation. In 2018, Gu Mi Technology Cooperation took Yuan Guang Company to court. Finally, Gu Mi Technology Cooperation won the lawsuit and the court sentenced Yuan Guang Company to compensate Gu Mi Technology Cooperation 500000 yuan.
+
+From this case, we can see that using business intelligence tools to fetch sensitive data may violate laws. We should be careful when using those tools and only use them in legal circumstances.
+
 # Question 6
 
 ## Aprioi Algorithm
