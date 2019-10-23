@@ -110,6 +110,25 @@ Relative Benefit = 30+40+80+120+130 = 400
 
 So, branch 3 has the best benefit, since 590 > 580 > 435 > 400
 
+# Question 5
+
+## Data Set
+
+| Object ID | prop1 (nominal) | prop2 (binary) | prop3 (binary) | prop4 (binary) | prop5 (numeric) | prop6 (numeric) | prop7 (ordinal) |
+| -- | -- | -- | -- | -- | -- | -- | -- |
+| 1 | A | Y | N | Y | 1.5 | 2.3 | excellent |
+| 2 | B | Y | N | N | 0.8 | 2.1 | fair |
+| 3 | A | Y | Y | Y | 1.2 | 1.7 | good |
+
+(binary properties (attributes) are all asymmetric)
+
+# Dissimilarity Matrix
+
+For prop5 (numeric)
+For prop7 (ordinal): excellent = 1.0, good = 0.5, fair = 0
+
+d(1, 2) = d<sub>nominal</sub> + d<sub>binary</sub> + d<sub>numeric</sub> + d<sub>ordinal</sub> = (1) + (0+1) + 
+
 # Question 6
 
 ## Aprioi Algorithm
