@@ -14,6 +14,71 @@ In 2015, 3 employees in Yuan Guang Company used web crawler tools to illegally a
 
 From this case, we can see that using business intelligence tools to fetch sensitive data may violate laws. We should be careful when using those tools and only use them in legal circumstances.
 
+# Question 2
+
+# Skewness Definition
+
+For a sample of n values, the sample skewness S is a measure of the asymmetry of the distribution of samples. Negative skewness commonly indicates that the tail is on the left side of the distribution, and positive skew indicates that the tail is on the right. A zero value means that the tails on both sides of the mean balance out overall; this is the case for a symmetric distribution, but can also be true for an asymmetric distribution where one tail is long and thin, and the other is short but fat.
+
+The skewness formula is as follows:
+![](skewness-formula.png)
+
+# Examples
+
+## Symmetric
+
+### Data Set
+
+| Samples |
+| -- |
+| 10, 15, 15, 20, 20, 20, 25, 25, 30 |
+
+### Solution
+
+(Sample mean) m = 20
+
+numerator = \[(10-m)<sup>3</sup>+2*(15-m)<sup>3</sup>+3*(20-m)<sup>3</sup>+2*(25-m)<sup>3</sup>+(30-m)<sup>3</sup>\] / 9 = (-1000-250+0+250+1000) / 9 = 0
+
+denominator = {\[(10-m)<sup>2</sup>+2*(15-m)<sup>2</sup>+3*(20-m)<sup>2</sup>+2*(25-m)<sup>2</sup>+(30-m)<sup>2</sup>\] / (9-1)}<sup>1/3</sup> = \[(100+50+0+50+100)/8\]<sup>1/3</sup> = 3.347
+
+(Skewness) S = numerator / denominator = 0 / 3.347 = 0
+
+## Positively Skewed
+
+### Data Set
+
+| Samples |
+| -- |
+| 10, 10, 15, 15, 15, 20, 20, 25 |
+
+### Solution
+
+(Sample mean) m = (2\*10+3\*15+2\*20+25)/8 = 16.25
+
+numerator = \[2*(10-m)<sup>3</sup>+3*(15-m)<sup>3</sup>+2*(20-m)<sup>3</sup>+(25-m)<sup>3</sup>\] / 8 = 35.16
+
+denominator = {\[2*(10-m)<sup>2</sup>+3*(15-m)<sup>2</sup>+2*(20-m)<sup>2</sup>+(25-m)<sup>2</sup>\] / (8-1)}<sup>1/3</sup> = 2.99
+
+(Skewness) S = numerator / denominator = 35.16 / 2.99 = 11.76 > 0
+
+## Negatively Skewed
+
+### Data Set
+
+| Samples |
+| -- |
+| 15, 20, 20, 25, 25, 25, 30, 30 |
+
+### Solution
+
+(Sample mean) m = (15+2\*20+3\*25+2\*30)/8 = 23.75
+
+numerator = \[(15-m)<sup>3</sup>+2*(20-m)<sup>3</sup>+3*(25-m)<sup>3</sup>+2*(30-m)<sup>3</sup>\] / 8 = -35.16
+
+denominator = {\[(15-m)<sup>2</sup>+2*(20-m)<sup>2</sup>+3*(25-m)<sup>2</sup>+2*(30-m)<sup>2</sup>\] / (8-1)}<sup>1/3</sup> = 2.99
+
+(Skewness) S = numerator / denominator = -35.16 / 2.99 = -11.76 < 0
+
 # Question 6
 
 ## Aprioi Algorithm
